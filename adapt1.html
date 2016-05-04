@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="index.css">
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width initial-scale=1.0" />
+<script type="text/javascript" src="jquery-1.12.1.min.js"></script>
 	<title>Ivano-Frankivck for Tourists</title>
 
 
@@ -159,12 +160,65 @@
 <div class="row">
     <div class="main">
       <div class="cols col-8">
-         <div class="ivent">
+      <span></span> <h2>Найближчі події</h2>
+         <div class="event">
+        <div class="accordeon">
+          <ul class="accordeon_list">
+            <li class="accordeon_item">
+              <a href="#" class="accordeon_trigger">Свято ковалів-2016 в Івано-Франківську - 7травня</a>
+              <ul class="accordeon_inner">
+                <li class="accordeon_inner-item">
+                  <img src="images/koval.png"><p> Свято ковалів-2016 в Івано-Франківську
+                     Це дійство традиційно проводиться в рамках святкування Дня міста Івано-Франківська. Фестиваль ковалів — найбільша туристична принада столиці Прикарпаття. Щороку масштаби свята все більші, вироби все цікавіші, а список закордонних гостей-учасників все ширший.
+
+                     На весь період фестивалю, центр міста перетворюється на велику кузню, де вирує одне з найдревніших мистецтв. Гостям пропонується придбати різноманітні сувеніри, замовити виріб на свій смак, налагодити контакти з провідними майстрами ковальства. Але найцікавішим є можливість поглянути на найсокровенніше — секрети творення безсмертної краси у металі.
+ 
+                     Кожного разу фестиваль проходить під певним гаслом. Так у 2011 році — це було «Тріумфальна арка». У 2012 році Івано-Франківську виповнилося 350 років. Саме у цей рік планується встановити спільну ковальську роботу — унікальну тріумфальну арку.</p>
+                </li>
+              </ul>
+            </li>
+
+            <li class="accordeon_item">
+              <a href="#" class="accordeon_trigger orange">Міжнародний мистецький фестиваль країн Карпатського регіону «CARPATHIAN SPACE» 6-8 червня</a>
+              <ul class="accordeon_inner">
+                <li class="accordeon_inner-item">
+                <img src="images/fest.png" >
+                 <p>Автор та організатор проекту – Національна оперета України. Фестиваль проводиться за підтримки Міністерства культури України, Івано-Франківської обласної державної адміністрації та міської ради м. Івано-Франківськ.
+                 Захід має стати масштабною культурною подією міжнародного значення, яка об’єднає країни Карпатського регіону не лише за природними ознаками, а й через мистецтво.
+                 Планується: 3 дні! 8 локацій! 9 країн-учасниць! І ціле море краси: культура, етнос, фольклор, сучасні надбання… Колективи з України, Австрії, Польщі, Румунії, Сербії, Словаччини, Угорщини, Чехії та Молдови розкриють душу своєї Батьківщини через мистецтво та творчість!
+                 </p> 
+                </li>
+              </ul>
+            </li>
+          
+
+          <li class="accordeon_item">
+              <a href="#" class="accordeon_trigger green">Мистецький фестиваль «Porto Franko ГогольFest» 4-5 липня</a>
+              <ul class="accordeon_inner">
+              <li class="accordeon_inner-item">
+              <img src="images/gogol.png">
+              <p>
+               Фестиваль охопить усю центральну частину міста, площі, вулиці, сквери. Фестиваль являється міждисциплінарним - будуть представлені усі види мистецтва. Окрім місцевого контенту, планується залучити найактуальніші проекти з усієї України, а також створити міжнародні колабораційні проекти з іноземними митцями.
+               Як локації будуть задіяні:
+                 <ul>
+                   <li>Палац Потоцьких; </li>
+                   <li>Обласний драматичний театр;</li>
+                   <li>Міська ратуша;</li>
+                   <li>Фортечна галерея "Бастіон".</li>
+                 </ul>
+                </li>
+                
+              </ul>
+              </p>
+            </li>
+        </div>
+
            
+
          </div>
       </div>
       <div class="cols col-4">
-      
+        
         
       </div>
     </div>
@@ -173,5 +227,29 @@
 
      </footer>
 </div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.accordeon_trigger').on('click', function(e){
+      e.preventDefault();
+      var $this=$(this);
+      var item=$this.closest('.accordeon_item');
+            var list=$this.closest('.accordeon_list');
+            var items=list.find('.accordeon_item');
+            var content=item.find('.accordeon_inner');
+            var otherContent=list.find('.accordeon_inner');
+            var duration=300;
+            if(!item.hasClass('active')){
+              items.removeClass('active');
+            item.addClass('active');
+            otherContent.slideUp(duration);
+            content.slideDown(duration);
+            
+        } else{
+          content.stop(true,true).slideUp(duration);
+          item.stop(true,true).removeClass('active');
+        }
+    });
+  });
+</script>     
 </body>
 </html> 
